@@ -23,6 +23,12 @@ let fortunes = [
   "You will be called in to fulfill a position of high honor and responsibility.",
 ];
 
+let newFortune = document.getElementById("newFortune");
+let openFortune = document.getElementById("openFortune");
+newFortune.style.display = "none";
+newFortune.style.backgroundColor = "#37e6c3";
+openFortune.style.backgroundColor = "#f9c4ff";
+
 class FortuneCookie extends RandomPicker {
   outputElement;
 
@@ -34,7 +40,17 @@ class FortuneCookie extends RandomPicker {
   open() {
     let fortune = this.pickRandom();
     this.outputElement.innerHTML = fortune;
+    openFortune.style.display = "none";
+    newFortune.style.display = "block";
+  }
+
+  again() {
+    this.outputElement.innerHTML = "Please open your cookie";
+    newFortune.style.display = "none";
+    openFortune.style.display = "block";
   }
 }
 
-let myFortuneCookie = new FortuneCookie(document.getElementById("newFortune"));
+let myFortuneCookie = new FortuneCookie(
+  document.getElementById("displayFortune")
+);
