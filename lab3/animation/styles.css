@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+  padding: 35px;
+  padding-top: 15px;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 16px;
+}
+
+.title {
+    color: #112163;
+    font-size: 50px;
+}
+
+.header {
+    width: 100vw;
+    background-color: #112163;
+    height: 150px;
+    margin-left: -70px;
+    
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 50px;
+    height: 67%;
+}
+
+.content .box {
+    width: 30%;
+    height: 45%;
+    background-color: #8b2299;
+    margin-right: 10px;
+    margin-bottom: 40px;
+}
