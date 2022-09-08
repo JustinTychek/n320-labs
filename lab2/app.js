@@ -4,7 +4,7 @@ class Instrument {
     this.loudness = loudness;
     this.family = family;
     this.verb = verb;
-    this.activatedCallback = callback;
+    this.onComplete = callback;
   }
 
   // method that plays a note when called
@@ -18,7 +18,7 @@ class Instrument {
     synth.triggerAttackRelease("C6", duration);
 
     //call the callback method "over" when the sound is complete
-    setTimeout(this.activatedCallback, duration);
+    setTimeout(this.callback, 500);
   }
 }
 
@@ -66,13 +66,17 @@ let curIns = 0;
 //plays the next note in the sequence
 function playNext() {
   myInstruments[curIns].play(0.5);
-  // console.log("playnext function");
   curIns++;
 }
 
 //loop through each of the objects and play a sound
+let i = 0;
 function clickStart() {
-  for (let i = 0; i < myInstruments.length; i++) {
+  setTimeout(function () {
     playNext();
-  }
+    i++;
+    if (i < myInstruments.length) {
+      clickStart();
+    }
+  }, 700);
 }
